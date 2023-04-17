@@ -53,7 +53,7 @@ const boxType = '#makeMyCustomBoxBtn';
 
 for(let index = 0; index < 8; index++){
 
-  describe(`Subscription Funnel for ${boxType} size ${size[index]}`, () => {
+  describe(`Subscription Funnel for Custom Box size ${size[index]}`, () => {
 
     const subscriptionButton = '.membership-cols-2022 button.eby-membership-button.ebyMicroBtn';
     const cartIcon = '.eby-mobile-nav #hcw .cart-link.jsDrawerOpenRight';

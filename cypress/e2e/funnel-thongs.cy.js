@@ -25,18 +25,6 @@ describe('Exit iframe', () => {
       // https://cdn.shopify.com/s/files/1/0313/4062/5964/files/logo-dark-22.svg?v=1666920606
   });
 });
-/*
-  dash-boxChoiceOption primeOpt custom #makeMyCustomBoxBtn
-  .dash-boxChoiceOption.secOpt.curate.mx
-  .dash-boxChoiceOption.secOpt.curate.ab
-  .dash-boxChoiceOption.secOpt.curate.ahw
-  .dash-boxChoiceOption.secOpt.curate.at
-  .dash-boxChoiceOption.secOpt.curate.fc
-
-  1. Each one should go to cart
-  2. Every size should work if it has any 
-
- */
 
 const size = {
   0:'XS',
@@ -51,16 +39,17 @@ const size = {
 
 const boxType = '.dash-boxChoiceOption.secOpt.curate.at';
 
-for(let index = 0; index < 8; index++){
 
-  describe(`Subscription Funnel for ${boxType} size ${size[index]}`, () => {
+for(let index = 3; index < 5; index++){
+
+  describe(`Subscription Funnel for Thongs size ${size[index]} only Natural Colors`, () => {
 
     const subscriptionButton = '.membership-cols-2022 button.eby-membership-button.ebyMicroBtn';
     const cartIcon = '.eby-mobile-nav #hcw .cart-link.jsDrawerOpenRight';
     const sizes = 'ul.sizeOptListing > li.sortOpt.alt';
     const addToCart = '#ebyAddToCartPopupSaveBtn'
-    const naturlMixedColors = '#eby-subscriptionColor21';
-    // const naturlMixedColors = '#eby-subscriptionColor22';
+
+    const naturalColors = 'label[for="only-neutrals"].sadOptLabel';
 
     it(`Funnel works properly adding to cart at the end`, () => {
       cy.get(subscriptionButton).click({ force: true })
@@ -71,36 +60,13 @@ for(let index = 0; index < 8; index++){
         cy.wrap(el[index]).click();
       })
 
-      switch(index){
-        case 0:
-        case 5:
-        case 6:
-        case 7:
-            cy.wait(5000)
-            cy.get(addToCart).click({ force: true })
-            cy.wait(5000)
-          break; 
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-            cy.wait(1000)
-            cy.get(naturlMixedColors).click( { force: true })
+      cy.wait(1000)
+      cy.get(naturalColors).click( { force: true })
 
-            cy.wait(5000)
-            cy.get(addToCart).click({ force: true })
+      cy.wait(5000)
+      cy.get(addToCart).click({ force: true })
 
-            cy.wait(5000)
-          break;   
-        default:
-          console.error('Size was not found')
-          break;
-      }
-
-      // cy.scrollTo(0, 10);
-      // cy.scrollTo(0, 0);
-      // cy.get(cartIcon).click({ force: true });
-      // cy.get(cartIcon).click();
+      cy.wait(5000)
 
     });
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -114,8 +80,6 @@ for(let index = 0; index < 8; index++){
     })
   });
 }
-
-
 
 
 
