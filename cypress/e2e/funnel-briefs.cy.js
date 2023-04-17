@@ -53,7 +53,7 @@ const boxType = '.dash-boxChoiceOption.secOpt.curate.ab';
 
 for(let index = 0; index < 8; index++){
 
-  describe(`Subscription Funnel for ${boxType} size ${size[index]} and mix colors`, () => {
+  describe(`Subscription Funnel for briefs size ${size[index]} and mix colors`, () => {
 
     const subscriptionButton = '.membership-cols-2022 button.eby-membership-button.ebyMicroBtn';
     const cartIcon = '.eby-mobile-nav #hcw .cart-link.jsDrawerOpenRight';
